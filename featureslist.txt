@@ -1,0 +1,68 @@
+opencv contribs
+	- oilpainting 
+	- background segementation
+	-face recognition
+	-free type (type)
+	text visual text matchine
+
+NEED TO IMPLEMENT MEMROY RELEASE ON IMAGES  JUST TO MAKE SURE	
+
+Image //compMat issues with similarly  looking images,  mirroring and white balance struggle
+	-flip vertical/horizontal done
+	-rotate(90, 180,90clockwise) done
+Adjustments
+	(color balance? can be done with ximgproc)
+	-b&w done
+	-brightness/contrast
+	-hue/saturation
+	-invert colors
+	-posterize
+	-sepia
+	-foreground extraction(inadjustments ?)
+Effects
+	-artistic
+		-ink sketch (cartoonise) done
+		-oil painting done
+		-pencil sketch
+	-blurs
+		-fragment
+		-Median
+		-motion blur
+		-radial blur
+		-surface blur
+		-unfocus
+		-zoom
+	
+	-distort
+		-Bulge
+		-crystalise
+		-dents
+		-frosted glass
+		-morphology
+		-pixelate
+		-polar inversion
+		-tile reflection
+		-twist
+	-noise
+		-add noise
+		-median
+		-reduce noise - possible to use xphoto
+		-
+
+	-photo
+		-glow
+		-red eye removal
+		-sharpen
+		-soften portrai
+		-vignette
+
+	-stylise
+		-edge detection
+		-emboss
+		-outline
+		-relief
+		-
+
+		-
+
+	

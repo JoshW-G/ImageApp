@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>images/exit.png</file>
+        <file>images/photo.png</file>
+        <file>images/save as.png</file>
+        <file>images/save.png</file>
+        <file>images/video.png</file>
+        <file>images/webcam.png</file>
+        <file>images/undo.png</file>
+        <file>images/redo.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

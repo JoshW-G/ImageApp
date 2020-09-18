@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_img">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen_Media">
+     <property name="title">
+      <string>Open Media</string>
+     </property>
+     <addaction name="actionOpen_Image"/>
+    </widget>
+    <addaction name="menuOpen_Media"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <widget class="QMenu" name="menuImage">
+    <property name="title">
+     <string>Image</string>
+    </property>
+    <addaction name="actionFlip_Vertical"/>
+    <addaction name="actionFlip_Horizontal"/>
+    <addaction name="separator"/>
+    <addaction name="actionRotate_90"/>
+    <addaction name="actionRotate_90_A"/>
+    <addaction name="actionRotate_180"/>
+   </widget>
+   <widget class="QMenu" name="menuAdjustments">
+    <property name="title">
+     <string>Adjustments</string>
+    </property>
+    <addaction name="actionBW"/>
+    <addaction name="actionWhite_Balance"/>
+    <addaction name="actionGrey_Balance"/>
+    <addaction name="actionContrast_Brightness"/>
+   </widget>
+   <widget class="QMenu" name="menuEffects">
+    <property name="title">
+     <string>Effects</string>
+    </property>
+    <widget class="QMenu" name="menuArtistic">
+     <property name="title">
+      <string>Artistic</string>
+     </property>
+     <addaction name="actionCartoonise"/>
+     <addaction name="actionOil_Painting"/>
+    </widget>
+    <addaction name="menuArtistic"/>
+    <addaction name="actionBlurs"/>
+    <addaction name="actionDistort"/>
+    <addaction name="actionNoise"/>
+    <addaction name="actionPhoto"/>
+    <addaction name="actionStylise"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuImage"/>
+   <addaction name="menuAdjustments"/>
+   <addaction name="menuEffects"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen_Image"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSave_As"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+  </widget>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/save.png</normaloff>:/rec/images/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/save as.png</normaloff>:/rec/images/save as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/exit.png</normaloff>:/rec/images/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionOpen_Image">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/photo.png</normaloff>:/rec/images/photo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Image</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/undo.png</normaloff>:/rec/images/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/images/redo.png</normaloff>:/rec/images/redo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionBW">
+   <property name="text">
+    <string>Black and White</string>
+   </property>
+   <property name="iconText">
+    <string>Black and White</string>
+   </property>
+  </action>
+  <action name="actionFlip_Vertical">
+   <property name="text">
+    <string>Flip Vertical</string>
+   </property>
+  </action>
+  <action name="actionFlip_Horizontal">
+   <property name="text">
+    <string>Flip Horizontal</string>
+   </property>
+  </action>
+  <action name="actionRotate_90">
+   <property name="text">
+    <string>Rotate 90</string>
+   </property>
+  </action>
+  <action name="actionRotate_90_A">
+   <property name="text">
+    <string>Rotate 90 Anti-Clockwise</string>
+   </property>
+  </action>
+  <action name="actionRotate_180">
+   <property name="text">
+    <string>Rotate 180</string>
+   </property>
+  </action>
+  <action name="actionBlurs">
+   <property name="text">
+    <string>Blurs</string>
+   </property>
+  </action>
+  <action name="actionDistort">
+   <property name="text">
+    <string>Distort</string>
+   </property>
+  </action>
+  <action name="actionNoise">
+   <property name="text">
+    <string>Noise</string>
+   </property>
+  </action>
+  <action name="actionPhoto">
+   <property name="text">
+    <string>Photo</string>
+   </property>
+  </action>
+  <action name="actionStylise">
+   <property name="text">
+    <string>Stylise</string>
+   </property>
+  </action>
+  <action name="actionCartoonise">
+   <property name="text">
+    <string>Ink Sketch (cartoonise)</string>
+   </property>
+  </action>
+  <action name="actionWhite_Balance">
+   <property name="text">
+    <string>White Balance</string>
+   </property>
+  </action>
+  <action name="actionGrey_Balance">
+   <property name="text">
+    <string>Grey Balance</string>
+   </property>
+  </action>
+  <action name="actionOil_Painting">
+   <property name="text">
+    <string>Oil Painting</string>
+   </property>
+  </action>
+  <action name="actionContrast_Brightness">
+   <property name="text">
+    <string>Contrast / Brightness</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
