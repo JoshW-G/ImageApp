@@ -50,7 +50,7 @@ void ImgEdit::cartoonise()
         //toColour(im,imGrey);
         cvtColor(im, imGrey, COLOR_BGR2GRAY);
     }else{im.copyTo(imGrey);}
-    setCurrMat(imGrey);
+
 
     //apply gaussian blur
     GaussianBlur(imGrey, imGrey, Size(3, 3), 0);
@@ -102,6 +102,16 @@ void ImgEdit::oilPainting()
     }
 }
 
+void ImgEdit::invert()
+{
+    imRedo.clear();
+    pushUndo(getMat());
+    Mat im = getMat();
+    Mat imOut;
+    cv::bitwise_not(im, imOut);
+    setCurrMat(imOut);
+}
+
 
 void ImgEdit::whiteBal(string mode)
 {
@@ -137,6 +147,58 @@ void ImgEdit::contBright(double a, int b)//addgrey error check
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
     qDebug() << "covertTo:" <<duration.count() <<"ms";
     setCurrMat(imConv);
+}
+
+void ImgEdit::HLS(int hue,int light, int sat )
+{
+    imRedo.clear();
+    pushUndo(getMat());
+    Mat in = getMat();
+    Mat im;
+    in.copyTo(im);
+    bool grey = ifGrey(&im);
+    if(grey){
+        cvtColor(im,im,CV_GRAY2BGR);
+    }
+    cvtColor(im,im,CV_BGR2HLS);
+
+//https://stackoverflow.com/questions/8535650/how-to-change-saturation-values-with-opencv
+
+        for(int y=0; y<im.cols; y++)
+        {
+            for(int x=0; x<im.rows; x++)
+            {
+                int cur1 = im.at<Vec3b>(Point(y,x))[0];
+                int cur2 = im.at<Vec3b>(Point(y,x))[1];
+                int cur3 = im.at<Vec3b>(Point(y,x))[2];
+                cur1 += hue;
+                cur2 += light;
+                cur3 += sat;
+
+                if(cur1 < 0) cur1= 0; else if(cur1 > 180) cur1 = 180;
+                if(cur2 < 0) cur2= 0; else if(cur2 > 100) cur2 = 100;
+                if(cur3 < 0) cur3= 0; else if(cur3 > 100) cur3 = 100;
+
+                im.at<Vec3b>(Point(y,x))[0] = cur1;
+                im.at<Vec3b>(Point(y,x))[1] = cur2;
+                im.at<Vec3b>(Point(y,x))[2] = cur3;
+                //qDebug()<< "hue:  " << im.at<Vec3b>(Point(y,x))[0] << "sat: " << im.at<Vec3b>(Point(y,x))[0] << "light:" <<im.at<Vec3b>(Point(y,x))[0] ;
+            }
+        }
+        qDebug() <<  "new";
+        Mat imOut;
+        im.copyTo(imOut);
+        cvtColor(im,imOut,CV_HLS2BGR);
+        /*for(int y=0; y<im.cols; y++)
+        {
+            for(int x=0; x<im.rows; x++)
+            {
+                qDebug()<< "hue:  " << imOut.at<Vec3b>(Point(x,y))[0] << "sat: " << imOut.at<Vec3b>(Point(x,y))[0] << "light:" <<imOut.at<Vec3b>(Point(x,y))[0] ;
+        }}*/
+        if(grey){
+            cvtColor(imOut,imOut,CV_RGB2GRAY);
+        }//need tocheck  values  by converting back to  hls  and checkingeach val
+        setCurrMat(imOut);
 }
 
 void ImgEdit::redo(){

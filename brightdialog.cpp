@@ -24,7 +24,7 @@ brightDialog::~brightDialog()
 
 int brightDialog::getBright() const
 {
-    return ui->brightSpinBox->value();;
+    return ui->brightSpinBox->value();
 }
 
 double brightDialog::getCont() const

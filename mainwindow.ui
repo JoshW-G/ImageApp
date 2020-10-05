@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -74,6 +74,8 @@
     <addaction name="actionWhite_Balance"/>
     <addaction name="actionGrey_Balance"/>
     <addaction name="actionContrast_Brightness"/>
+    <addaction name="actionHue_Saturation"/>
+    <addaction name="actionInvert_Colours"/>
    </widget>
    <widget class="QMenu" name="menuEffects">
     <property name="title">
@@ -260,6 +262,16 @@
   <action name="actionContrast_Brightness">
    <property name="text">
     <string>Contrast / Brightness</string>
+   </property>
+  </action>
+  <action name="actionHue_Saturation">
+   <property name="text">
+    <string>Hue/Saturation</string>
+   </property>
+  </action>
+  <action name="actionInvert_Colours">
+   <property name="text">
+    <string>Invert Colours</string>
    </property>
   </action>
  </widget>

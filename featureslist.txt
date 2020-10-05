@@ -1,5 +1,9 @@
+Things to fix/change
+	bightness/contrast works  but  is probably  not right
+
+
 opencv contribs
-	- oilpainting 
+	- oilpainting /done
 	- background segementation
 	-face recognition
 	-free type (type)
@@ -13,7 +17,7 @@ Image //compMat issues with similarly  looking images,  mirroring and white bala
 Adjustments
 	(color balance? can be done with ximgproc)
 	-b&w done
-	-brightness/contrast
+	-brightness/contrast done  (should  probably need to be changed
 	-hue/saturation
 	-invert colors
 	-posterize

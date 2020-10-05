@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "imgedit.h"
 #include "brightdialog.h"
+#include "hlsdialog.h"
 #include <QDebug>
 
 const QString g_imageFilter = "All Image Files (*.bmp *.jpg *.jpeg *.png *.tiff *.tif) ;; Bitmap (*.bmp) ;; JPEG (*.jpg *.jpeg) ;; Potable Image (*.png) ;; TIFF (*.tiff *.tif) ";
@@ -51,7 +52,7 @@ void MainWindow::on_actionOpen_Image_triggered()
         QPixmap img(fileName);//display images
         string file =  fileName.toStdString();
         ie.openMat(file);
-        //ie.oilPainting();
+
         img =cvMatToQPixmap(ie.getMat());
         //int w = ui->label_img->width();
         //int h = ui->label_img->height();
@@ -284,6 +285,47 @@ void MainWindow::on_actionContrast_Brightness_triggered()
         }
 
     }
+}
+
+void MainWindow::on_actionInvert_Colours_triggered()
+{
+    if(!g_path.isEmpty()){
+        ie.invert();
+        QPixmap img = cvMatToQPixmap(ie.getMat());
+        int x= img.width();
+        int y =img.height();
+        //ui->label_img->setPixmap(img.scaled(w,h,Qt::KeepAspectRatio));
+        ui->label_img->setPixmap(img.scaled(x,y,Qt::KeepAspectRatio));
+
+    }
+}
+
+void MainWindow::on_actionHue_Saturation_triggered()
+{
+    if(!g_path.isEmpty()){
+        HLSDialog diag;
+        diag.setModal(true);
+        if(diag.exec() == QDialog::Accepted){
+            qDebug() << "accept";
+            int hue  = diag.getHue();
+            int sat = diag.getSat();
+            int light  = diag.getSat();
+            qDebug() << hue << " " << sat  << "" <<light ;
+            //double a = (double)result[0]/100.0 * 2.0 + 1.0;
+            //int b  = result[1];
+            //qDebug() << a << " " <<  b;
+            ie.HLS(hue , sat , light);
+            QPixmap img = cvMatToQPixmap(ie.getMat());
+            int x= img.width();
+            int y =img.height();
+            //ui->label_img->setPixmap(img.scaled(w,h,Qt::KeepAspectRatio));
+            ui->label_img->setPixmap(img.scaled(x,y,Qt::KeepAspectRatio));
+        }
+
+    }
+
+
+
 }
 
 

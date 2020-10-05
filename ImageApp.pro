@@ -10,17 +10,21 @@ CONFIG += c++11
 
 SOURCES += \
     brightdialog.cpp \
+    hlsdialog.cpp \
     imgedit.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     brightdialog.h \
+    hlsdialog.h \
     imgedit.h \
     mainwindow.h
 
 FORMS += \
+    HLSdialog.ui \
     brightdialog.ui \
+    hlsdialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

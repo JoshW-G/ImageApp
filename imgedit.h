@@ -36,9 +36,10 @@ public:
     **/
     void cartoonise();
     void oilPainting();
-
+    void invert();
     void whiteBal(string mode);
     void contBright(double contrast, int brightness);
+    void HLS(int hue, int light, int sat );
 signals:
 
 private:

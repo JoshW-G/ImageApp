@@ -60,6 +60,10 @@ private slots:
 
     void on_actionContrast_Brightness_triggered();
 
+    void on_actionInvert_Colours_triggered();
+
+    void on_actionHue_Saturation_triggered();
+
 private:
     Ui::MainWindow *ui;
     ImgEdit *imEdit;
